@@ -151,6 +151,18 @@ section{
     height: 500px;
     font-size: 20px;
 }
+td{
+    height:25px;
+    width:25px;
+}
+input[type="text"]{
+    width:25px;
+    text-align:center;
+    background:transparent;
+    font-size:20px;
+    color:#fff;
+    border:none;
+}
 tr:nth-child(3),tr:nth-child(6){
     border-bottom: 4px solid #fff;
 }
