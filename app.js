@@ -136,11 +136,11 @@ for (let i=0; i < size; i++){
         if(i === j){
             createRow(numbers[i]);
 
-           /* for(let k=0; k < size; k++){
+            for(let k=0; k < size; k++){
                     const arrSyntethic = getSyntethicRow(j);                
                     numbers[k][j].value = arrSyntethic[k].value;
                     createRow(arrSyntethic);
-            }  */          
+            }            
         }
     }
 }
