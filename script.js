@@ -54,6 +54,8 @@ function randTable(sudoku){
         return sudoku[Math.floor(Math.random() * sudoku.length)];
     }
 }
+var masterMatrix = randTable(randArr);
+
 let demo = [
     [5,3,4,6,7,8,9,1,2],
     [6,7,2,1,9,5,3,4,8],
@@ -125,17 +127,16 @@ function NumbersToEmpty(arr,difficulty){
     }
     return newMatrix;
 }
-console.log(NumbersToEmpty(randTable(randArr),40));  
+//console.log(NumbersToEmpty(randTable(randArr),40));  
 
 var levelEasy = document.getElementById("easy");
 levelEasy.addEventListener("click", function(){
 let sudokuDiv = document.getElementById("sudoku");
-debugger
     let table = '<table border="1" width="500">';
         for (let i=0; i < size; i++){
             table = table + '<tr>';
                 for (let j=0; j < size; j++){
-                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(randTable(randArr),40)[i][j]}"> </td>`;
+                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,20)[i][j]}"> </td>`;
                 }
             table = table + '</tr>';
         }   
@@ -147,25 +148,43 @@ sudokuDiv.innerHTML += solveButton;
 sudokuDiv.innerHTML += retryButton;
 });
 
-
-/*
-var levelEasy = document.getElementById("easy");
-levelEasy.addEventListener("click", function(){
+var levelMedium = document.getElementById("medium");
+levelMedium.addEventListener("click", function(){
 let sudokuDiv = document.getElementById("sudoku");
-let table = '<table border="1" width="500">';
-    for (let i=0; i < size; i++){
-        table = table + '<tr>';
-            for (let j=0; j < size; j++){
-                table = table + `<td><input maxlength="1" type="text" value="${solveSudoku(sudoku)[i][j]}"> </td>`;
-            }
-        table = table + '</tr>';
-    }
-    
-table = table + '</table>';
-let button = `<button onclick="${}" class="solved">Solved</button>`;
+    let table = '<table border="1" width="500">';
+        for (let i=0; i < size; i++){
+            table = table + '<tr>';
+                for (let j=0; j < size; j++){
+                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,40)[i][j]}"> </td>`;
+                }
+            table = table + '</tr>';
+        }   
+    table = table + '</table>';
+let solveButton = `<button onclick="" class="trytosolve">FINISH ✓</button>`;
+let retryButton = `<button onclick="" class="trytosolve">RETRY ↺</button>`;
 sudokuDiv.innerHTML = table;
-sudokuDiv.innerHTML += button;
-}); */
+sudokuDiv.innerHTML += solveButton;
+sudokuDiv.innerHTML += retryButton;
+});
+
+var levelHard = document.getElementById("hard");
+levelHard.addEventListener("click", function(){
+let sudokuDiv = document.getElementById("sudoku");
+    let table = '<table border="1" width="500">';
+        for (let i=0; i < size; i++){
+            table = table + '<tr>';
+                for (let j=0; j < size; j++){
+                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,60)[i][j]}"> </td>`;
+                }
+            table = table + '</tr>';
+        }   
+    table = table + '</table>';
+let solveButton = `<button onclick="" class="trytosolve">FINISH ✓</button>`;
+let retryButton = `<button onclick="" class="trytosolve">RETRY ↺</button>`;
+sudokuDiv.innerHTML = table;
+sudokuDiv.innerHTML += solveButton;
+sudokuDiv.innerHTML += retryButton;
+});
 
  
 
