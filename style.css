@@ -32,6 +32,7 @@ section{
     margin: 0px 35px;
     float: left;
     position: relative;
+    cursor: pointer;
 }
 .box .table{
     height: 300px;
@@ -59,6 +60,7 @@ section{
     text-shadow:-3px -3px yellowgreen ;
     overflow: hidden;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    cursor: pointer;
 }
 .box .play:before{
     content:'';
@@ -168,4 +170,19 @@ tr:nth-child(3),tr:nth-child(6){
 }
 td:nth-child(3),td:nth-child(6){
     border-right: 4px solid #fff;
+}
+.trytosolve{
+    padding: 10px 30px;
+    font-size: 25px;
+    border: 1px solid #39ff14;
+    margin: 30px 20px;
+    background: transparent;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    color:#75c467;
+    float: left;
+    font-weight: 200;
+    cursor: pointer;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 3px;
+    text-align: center;
 }
