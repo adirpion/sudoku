@@ -52,10 +52,19 @@ let randArr = [
 function randTable(sudoku){
     for(let i = 0; i < sudoku.length; i++){
         return sudoku[Math.floor(Math.random() * sudoku.length)];
-    }   
-   return sudoku;
+    }
 }
-
+let demo = [
+    [5,3,4,6,7,8,9,1,2],
+    [6,7,2,1,9,5,3,4,8],
+    [1,9,8,3,4,2,5,6,7],
+    [8,5,9,7,6,1,4,2,3],
+    [4,2,6,8,5,3,7,9,1],
+    [7,1,3,9,2,4,8,5,6],
+    [9,6,1,5,3,7,2,8,4],
+    [2,8,7,4,1,9,6,3,5],
+    [3,4,5,2,8,6,1,7,9]
+];
 /* This function check if the sudoku solved */
 function solveSudoku(sudoku){
     let impossibleIndex = {},impossibleNumbers,whileCounter = 81;
@@ -112,21 +121,21 @@ function NumbersToEmpty(arr,difficulty){
         if(newMatrix[row][col] != 0){
             newMatrix[row][col] = '';
             counter++;
-        }
+        }            
     }
     return newMatrix;
 }
-console.log(NumbersToEmpty(randTable(randArr),40));    
-
+console.log(NumbersToEmpty(randTable(randArr),40));  
 
 var levelEasy = document.getElementById("easy");
 levelEasy.addEventListener("click", function(){
 let sudokuDiv = document.getElementById("sudoku");
+debugger
     let table = '<table border="1" width="500">';
         for (let i=0; i < size; i++){
             table = table + '<tr>';
                 for (let j=0; j < size; j++){
-                    table = table +  `<td><input type="text" maxlength="1" value="${randTable(randArr)}"> </td>`;
+                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(randTable(randArr),40)[i][j]}"> </td>`;
                 }
             table = table + '</tr>';
         }   
@@ -173,3 +182,4 @@ var sudokuDemo = [
     [0,0,0,4,1,9,0,0,5],
     [0,0,0,0,8,0,0,7,9]
 ];
+
