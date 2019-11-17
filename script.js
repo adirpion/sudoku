@@ -1,7 +1,6 @@
-let sudokuDiv = document.getElementById("sudoku");
-let table = '<table border="1" width="500">';
 const size = 9;
 const innerBoxSize = size / 3;
+let counter = 20;
 
 /* Generete random number between 1-9 */ 
 const randNumber = (number) => {
@@ -35,6 +34,7 @@ function solveSudoku(sudoku){
                         } 
                     }
                     impossibleNumbers = Object.keys(impossibleIndex);
+                    console.log(impossibleNumbers);
                     if(impossibleNumbers.length == 8){
                         for(let i = 1; i < 10; i++){                            
                             if(impossibleNumbers.indexOf(i.toString()) < 0){                                
@@ -61,7 +61,50 @@ var sudoku = [
     [0,0,0,4,1,9,0,0,5],
     [0,0,0,0,8,0,0,7,9]
 ];
+var sudoku2 = [
+    [5,3,4,6,7,8,9,1,2],
+    [6,7,2,1,9,5,3,4,8],
+    [1,9,8,3,4,2,5,6,7],
+    [8,5,9,7,6,1,4,2,3],
+    [4,2,6,8,5,3,7,9,1],
+    [7,1,3,9,2,4,8,5,6],
+    [9,6,1,5,3,7,2,8,4],
+    [2,8,7,4,1,9,6,3,5],
+    [3,4,5,2,8,6,1,7,9]
+];
 
+function removeEasy(sudoku){
+    
+    //debugger
+    counter = 0;
+    while(counter < 40){
+        for (var i=0; i < sudoku.length; i++){
+            for(var j=0; j < sudoku.length; j++){
+                //Math.floor(Math.random()*sudoku.length)+1, 1, "")     
+            }        
+        }   
+    }
+    return temp;
+    console.log(item);
+}    
+let temp = sudoku2.map( (item) => {
+   for(let i=0; i < item.length; i++){
+        for(let j=0; j < item.length; j++){
+            if(item % 2 == 0){
+                item = ""; 
+            }         
+        } 
+    }  
+    return item;             
+});
+
+console.log(temp);
+//console.log(removeEasy(sudoku2));
+
+var levelEasy = document.getElementById("easy");
+levelEasy.addEventListener("click", function(){
+let sudokuDiv = document.getElementById("sudoku");
+let table = '<table border="1" width="500">';
     for (let i=0; i < size; i++){
         table = table + '<tr>';
             for (let j=0; j < size; j++){
@@ -69,7 +112,33 @@ var sudoku = [
             }
         table = table + '</tr>';
     }
+    
+table = table + '</table>';
+let button = `<button onclick="" class="solved">Solved</button>`;
+sudokuDiv.innerHTML = table;
+sudokuDiv.innerHTML += button;
+});
+
+
+/*
+var levelEasy = document.getElementById("easy");
+levelEasy.addEventListener("click", function(){
+let sudokuDiv = document.getElementById("sudoku");
+let table = '<table border="1" width="500">';
+    for (let i=0; i < size; i++){
+        table = table + '<tr>';
+            for (let j=0; j < size; j++){
+                table = table + `<td><input maxlength="1" type="text" value="${solveSudoku(sudoku)[i][j]}"> </td>`;
+            }
+        table = table + '</tr>';
+    }
+    
+table = table + '</table>';
+let button = `<button onclick="${}" class="solved">Solved</button>`;
+sudokuDiv.innerHTML = table;
+sudokuDiv.innerHTML += button;
+}); */
+
  
 
-table = table + '</table>';
-sudokuDiv.innerHTML = table;
+
