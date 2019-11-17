@@ -8,7 +8,7 @@ body{
     background: rgb(27, 27, 27);
     font-family:monospace;
 }
-.title {
+#title {
     color:rgba(255, 255, 255, 0.15);
     font-size:4.5em;
     margin-top:50px;
@@ -17,6 +17,24 @@ body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 0;
     letter-spacing: 3px;
+    opacity: 0;
+}
+#titleLogin{
+    color:rgba(255, 255, 255, 0.15);
+    font-size:6em;
+    margin-top:50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0;
+    letter-spacing: 3px;
+    text-shadow: -3px -3px 0px rgba(255,255,255,0.15); 
+}
+#title-position{
+    position: absolute;
+    left:100px;
+    top:50%;
+    font-size: 6em;
 }
 section{
     display: flex;
@@ -24,7 +42,8 @@ section{
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin-top:100px;
+    opacity: 0;
+    margin-top: 50px;    
 }
 .box{
     width: 330px;
@@ -144,9 +163,10 @@ section{
 #sudoku{
     color:#fff;
     text-align: center;
-    position: absolute;
     left:50%;
-    transform: translateX(-50%);
+    position: absolute;
+    transform:translateX(-50%);
+    top:30px;
 }
 #sudoku table{
     width: 500px;
@@ -157,7 +177,7 @@ td{
     height:25px;
     width:25px;
 }
-input[type="text"]{
+.sudokuInput{
     width:25px;
     text-align:center;
     background:transparent;
@@ -185,4 +205,52 @@ td:nth-child(3),td:nth-child(6){
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 3px;
     text-align: center;
+}
+body{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-family: sans-serif;
+    font-size: small;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#login{
+    position: relative;
+    margin: 0;
+
+}
+
+.login{
+    border-radius: 3px;
+    width: 33%;
+    padding: 20px;
+    margin: 20px;
+    font-size: 14pt;
+    position: relative;
+    background: 0%;
+    border: #39ff14;
+    border-width: 2px;
+    border-style: solid;
+    color: #ffffff;
+}
+
+#enter{
+    padding: 20px;
+    margin: 20px;
+    font-size: 14pt; 
+    color:  rgb(27, 27, 27);
+    background-color:  #39ff14;
+    border-style: none;
+    border-radius: 2px;
+    width: 33%;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.fillBack{
+    color:#fff;
+    font-size:18px;
 }

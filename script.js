@@ -131,12 +131,19 @@ function NumbersToEmpty(arr,difficulty){
 
 var levelEasy = document.getElementById("easy");
 levelEasy.addEventListener("click", function(){
+    let section = document.getElementById("chooseLevel");
+    let titleH2 = document.getElementById("title");
+    titleH2.style.opacity = "0";
+    section.style.opacity = "0";
+
 let sudokuDiv = document.getElementById("sudoku");
+    //sudokuDiv.style.transform = "scale(1)";
+    let levelTitle = '<h2 id="title title-position">HARD</h2>';
     let table = '<table border="1" width="500">';
         for (let i=0; i < size; i++){
             table = table + '<tr>';
                 for (let j=0; j < size; j++){
-                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,20)[i][j]}"> </td>`;
+                    table = table +  `<td><input class="sudokuInput" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,20)[i][j]}"> </td>`;
                 }
             table = table + '</tr>';
         }   
@@ -150,12 +157,19 @@ sudokuDiv.innerHTML += retryButton;
 
 var levelMedium = document.getElementById("medium");
 levelMedium.addEventListener("click", function(){
+    let section = document.getElementById("chooseLevel");
+    let titleH2 = document.getElementById("title");
+    titleH2.style.opacity = "0";
+    section.style.opacity = "0";
+
 let sudokuDiv = document.getElementById("sudoku");
+    //sudokuDiv.style.transform = "scale(1)";
+    let levelTitle = '<h2 id="title title-position">HARD</h2>';
     let table = '<table border="1" width="500">';
         for (let i=0; i < size; i++){
             table = table + '<tr>';
                 for (let j=0; j < size; j++){
-                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,40)[i][j]}"> </td>`;
+                    table = table +  `<td><input class="sudokuInput" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,40)[i][j]}"> </td>`;
                 }
             table = table + '</tr>';
         }   
@@ -169,12 +183,19 @@ sudokuDiv.innerHTML += retryButton;
 
 var levelHard = document.getElementById("hard");
 levelHard.addEventListener("click", function(){
+    let section = document.getElementById("chooseLevel");
+    let titleH2 = document.getElementById("title");
+    titleH2.style.opacity = "0";
+    section.style.opacity = "0";
+
 let sudokuDiv = document.getElementById("sudoku");
+    //sudokuDiv.style.transform = "scale(1)";
+    let levelTitle = '<h2 id="title title-position">HARD</h2>';
     let table = '<table border="1" width="500">';
         for (let i=0; i < size; i++){
             table = table + '<tr>';
                 for (let j=0; j < size; j++){
-                    table = table +  `<td><input type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,60)[i][j]}"> </td>`;
+                    table = table +  `<td><input class="sudokuInput" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,60)[i][j]}"> </td>`;
                 }
             table = table + '</tr>';
         }   
@@ -186,7 +207,29 @@ sudokuDiv.innerHTML += solveButton;
 sudokuDiv.innerHTML += retryButton;
 });
 
- 
+function enter() {
+    debugger
+    let pass = document.getElementById('pass').value;
+    let user = document.getElementById('user').value;
+    let userCorrect = 'abcd';
+    let passCorrect = '1234';
+
+    if (user != userCorrect) {
+        document.getElementById("userBack").innerHTML = 'username is uncorrect';
+    }
+    if (pass != passCorrect) {
+        document.getElementById("passBack").innerHTML = 'password is uncorrect';
+    }
+    if ((user == userCorrect) && (pass == passCorrect)) {
+        let loginDiv = document.getElementById("loginDiv");
+        let titleH2 = document.getElementById("title");
+        let section = document.getElementById("chooseLevel");
+        loginDiv.style.display = "none";
+        section.style.opacity = "1";
+        section.style.display = "block";
+        titleH2.style.opacity = "1";
+    }
+} 
 
 
 
