@@ -1,5 +1,5 @@
+let originalBoard;
 const size = 9;
-const innerBoxSize = size / 3;
 /* randArr fills 4 different sudoku table */
 let randArr = [
 [
@@ -127,87 +127,79 @@ function NumbersToEmpty(arr,difficulty){
     }
     return newMatrix;
 }
-//console.log(NumbersToEmpty(randTable(randArr),40));  
+
+function createTable(numbers){
+    let table = '<table border="1" width="500">';
+        for (let i=0; i < size; i++){
+            table = table + '<tr>';
+                for (let j=0; j < size; j++){
+                    table = table +  `<td><input class="sudokuInput" id="${'' + i + j}" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,numbers)[i][j]}"> </td>`;
+                }
+            table = table + '</tr>';
+        }   
+    table = table + '</table>';
+
+    return table
+}
+
+function createGameContainer(difficulty, removeNumbers) {
+    let section = document.getElementById("chooseLevel");
+    let titleH2 = document.getElementById("title");
+    titleH2.style.opacity = "0";
+    section.style.opacity = "0";
+
+    let sudokuDiv = document.getElementById("sudoku");
+    let levelTitle = `<h2 id="title title-position">${difficulty}</h2>`;
+    let table = createTable(removeNumbers);
+    let solveButton = `<button onclick="solveGame()" class="trytosolve">FINISH ✓</button>`;
+    let retryButton = `<button onclick="reset()" class="trytosolve">RETRY ↺</button>`;
+    sudokuDiv.innerHTML = table;
+    sudokuDiv.innerHTML += solveButton;
+    sudokuDiv.innerHTML += retryButton;
+
+    originalBoard = sudokuDiv.innerHTML;
+}
 
 var levelEasy = document.getElementById("easy");
-levelEasy.addEventListener("click", function(){
-    let section = document.getElementById("chooseLevel");
-    let titleH2 = document.getElementById("title");
-    titleH2.style.opacity = "0";
-    section.style.opacity = "0";
-
-let sudokuDiv = document.getElementById("sudoku");
-    //sudokuDiv.style.transform = "scale(1)";
-    let levelTitle = '<h2 id="title title-position">HARD</h2>';
-    let table = '<table border="1" width="500">';
-        for (let i=0; i < size; i++){
-            table = table + '<tr>';
-                for (let j=0; j < size; j++){
-                    table = table +  `<td><input class="sudokuInput" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,20)[i][j]}"> </td>`;
-                }
-            table = table + '</tr>';
-        }   
-    table = table + '</table>';
-let solveButton = `<button onclick="" class="trytosolve">FINISH ✓</button>`;
-let retryButton = `<button onclick="" class="trytosolve">RETRY ↺</button>`;
-sudokuDiv.innerHTML = table;
-sudokuDiv.innerHTML += solveButton;
-sudokuDiv.innerHTML += retryButton;
-});
+levelEasy.addEventListener("click", ()=> createGameContainer('EASY', 20));
 
 var levelMedium = document.getElementById("medium");
-levelMedium.addEventListener("click", function(){
-    let section = document.getElementById("chooseLevel");
-    let titleH2 = document.getElementById("title");
-    titleH2.style.opacity = "0";
-    section.style.opacity = "0";
-
-let sudokuDiv = document.getElementById("sudoku");
-    //sudokuDiv.style.transform = "scale(1)";
-    let levelTitle = '<h2 id="title title-position">HARD</h2>';
-    let table = '<table border="1" width="500">';
-        for (let i=0; i < size; i++){
-            table = table + '<tr>';
-                for (let j=0; j < size; j++){
-                    table = table +  `<td><input class="sudokuInput" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,40)[i][j]}"> </td>`;
-                }
-            table = table + '</tr>';
-        }   
-    table = table + '</table>';
-let solveButton = `<button onclick="" class="trytosolve">FINISH ✓</button>`;
-let retryButton = `<button onclick="" class="trytosolve">RETRY ↺</button>`;
-sudokuDiv.innerHTML = table;
-sudokuDiv.innerHTML += solveButton;
-sudokuDiv.innerHTML += retryButton;
-});
+levelMedium.addEventListener("click", ()=> createGameContainer('MEDIUM', 40));
 
 var levelHard = document.getElementById("hard");
-levelHard.addEventListener("click", function(){
-    let section = document.getElementById("chooseLevel");
-    let titleH2 = document.getElementById("title");
-    titleH2.style.opacity = "0";
-    section.style.opacity = "0";
+levelHard.addEventListener("click", ()=> createGameContainer('HARD', 60));
+    
+function getMatrix(){
+    const board = [];
 
-let sudokuDiv = document.getElementById("sudoku");
-    //sudokuDiv.style.transform = "scale(1)";
-    let levelTitle = '<h2 id="title title-position">HARD</h2>';
-    let table = '<table border="1" width="500">';
-        for (let i=0; i < size; i++){
-            table = table + '<tr>';
-                for (let j=0; j < size; j++){
-                    table = table +  `<td><input class="sudokuInput" type="text" maxlength="1" value="${NumbersToEmpty(masterMatrix,60)[i][j]}"> </td>`;
-                }
-            table = table + '</tr>';
-        }   
-    table = table + '</table>';
-let solveButton = `<button onclick="" class="trytosolve">FINISH ✓</button>`;
-let retryButton = `<button onclick="" class="trytosolve">RETRY ↺</button>`;
-sudokuDiv.innerHTML = table;
-sudokuDiv.innerHTML += solveButton;
-sudokuDiv.innerHTML += retryButton;
-});
+    for (let i=0; i < size; i++) {
+        board[i] = [];
+        for (let j=0; j < size; j++) {
+            if(board[i][j]){
+                board[i][j] += document.getElementById(" " +i + j).value;
+            }
+        }
+    }
+    return board;
+}
+console.log(getMatrix());
+function reset(){
+    let sudokuDiv = document.getElementById("sudoku");
 
-function enter() {
+    sudokuDiv.innerHTML = originalBoard;
+}
+
+function solveGame() {
+    const board = getMatrix()
+    if(solveSudoku(board)){
+        alert("Congratioanis!!! you solve it");
+    }else {
+        alert("Sorry Try agein");
+    }
+    
+}
+
+function login() {
     debugger
     let pass = document.getElementById('pass').value;
     let user = document.getElementById('user').value;
@@ -244,4 +236,3 @@ var sudokuDemo = [
     [0,0,0,4,1,9,0,0,5],
     [0,0,0,0,8,0,0,7,9]
 ];
-
