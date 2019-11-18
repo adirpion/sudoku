@@ -190,7 +190,7 @@ function reset(){
 }
 
 function solveGame() {
-    const board = getMatrix()
+    const board = getMatrix();
     if(solveSudoku(board)){
         alert("Congratioanis!!! you solve it");
     }else {
