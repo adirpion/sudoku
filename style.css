@@ -17,6 +17,7 @@ body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 0;
     letter-spacing: 3px;
+    text-shadow: -3px -3px 0px rgba(255,255,255,0.15);
     opacity: 0;
 }
 #titleLogin{
@@ -36,17 +37,14 @@ body{
     top:50%;
     font-size: 6em;
 }
-section{
+#chooseLevel{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: 100vh;
     opacity: 0;
-    margin-top: 50px;
-    margin-right: auto; 
-    margin-left: auto;  
-    flex-direction: row; 
+    margin-top: 50px; 
 }
 .box{
     width: 330px;
@@ -204,10 +202,10 @@ td:nth-child(3),td:nth-child(6){
     color:#75c467;
     float: left;
     font-weight: 200;
-    cursor: pointer;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 3px;
     text-align: center;
+    cursor: pointer;
 }
 body{
     position: absolute;
