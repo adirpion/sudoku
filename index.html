@@ -9,54 +9,64 @@
 </head>
 <body>
 
-<div id="loginDiv" class="body">
-    <h2 id="titleLogin">SUDOKU ZEN</h2>
-    <div id='login'>
-        <input class='login' id='user' type='text' placeholder="enter username">
-        <p class='fillBack' id='userBack'> </p>
-        <input class='login' id='pass' type='text' placeholder="enter password">
-        <p class='fillBack' id='passBack'> </p>
-        <br>
-        <button id='enter' onClick="enter()"> ENTER </button>    
+<!-- login area -->
+    <div id="loginDiv" class="body">
+        <h2 id="titleLogin">SUDOKU ZEN</h2>
+        <div id='login'>
+            <input class='login' id='user' type='text' placeholder="enter username">
+            <p class='fillBack' id='userBack'> </p>
+            <input class='login' id='pass' type='text' placeholder="enter password">
+            <p class='fillBack' id='passBack'> </p>
+            <br>
+            <button id='enter' onClick="login()"> ENTER </button>    
+        </div>
     </div>
-</div>
+<!-- end login aren -->
 
+<!-- title to section that fill the level choose -->
 <h2 id="title">Choose your Matrix</h2>
-<section id="chooseLevel">
-    <div class="box">
-        <div class="table"><img src="tableEasy.png" alt=""></div>
-        <a id="easy" href="#" class="play">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            EASY
-        </a>
-    </div>
-    <div class="box">
-        <div class="table"><img src="tableMedium.png" alt=""></div>
-        <a id="medium" href="#" class="play">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            MEDIUM
-        </a>   
-    </div>
-    <div class="box">
-        <div class="table"><img src="tableHard.png" alt=""></div>
-        <a id="hard" href="#" class="play">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            HARD
-        </a> 
-    </div>      
-</section>  
 
-<div id="sudoku"></div>       
-    <!-- <script src="app.js"></script> -->
-    <script src="script.js"></script>
+<!-- this section fill the tables levels -->
+    <section id="chooseLevel">
+        <div class="box">
+            <div class="table"><img src="tableEasy.png" alt=""></div>
+            <a id="easy" href="#" class="play">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                EASY
+            </a>
+        </div>
+        <div class="box">
+            <div class="table"><img src="tableMedium.png" alt=""></div>
+            <a id="medium" href="#" class="play">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                MEDIUM
+            </a>   
+        </div>
+        <div class="box">
+            <div class="table"><img src="tableHard.png" alt=""></div>
+            <a id="hard" href="#" class="play">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                HARD
+            </a> 
+        </div>      
+    </section>  
+<!-- end level choose section -->
+
+<!-- this div contain the tables and the level choose section  -->
+<div id="sudoku"></div>  
+
+        <!-- this app.js has code to generete random sudoku every time -->
+        <!-- <script src="app.js"></script> -->
+
+        <script src="script.js"></script>
 </body>
 </html>
