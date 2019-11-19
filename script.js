@@ -148,8 +148,8 @@ function getMatrix(){
         // board[i] = [];
         for (let j=0; j < size; j++) {
             // if(board[i][j]){
-                board[i][j] += document.getElementById('' + i + j).value;
-                board[i][j] = parseInt(board[i][j]);
+                board[i][j] = +document.getElementById('' + i + j).value;
+                board[i][j] = parseInt(board[i][j]);                
         }
     }
     console.log(subMasterMatrix);
@@ -167,12 +167,12 @@ function getMatrix(){
             }
         }
     }
-        if (counter == 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    if (counter == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 /* this function reset the table by return it to the first appearance */
 function reset(){

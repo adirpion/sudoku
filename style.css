@@ -37,7 +37,7 @@ body{
     top:50%;
     font-size: 6em;
 }
-section{
+#chooseLevel{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +53,6 @@ section{
     height: 500px;
     margin: 0px 35px;
     position: relative;
-    cursor: pointer;
     float: left;
 }
 .box .table{
