@@ -112,7 +112,7 @@ function createGameContainer(difficulty, removeNumbers) {
     sudokuDiv.innerHTML = table;
     sudokuDiv.innerHTML += solveButton;
     sudokuDiv.innerHTML += retryButton;
-
+    sudokuDiv.style.transform = "scale(1) translateX(-50%)"
     originalBoard = sudokuDiv.innerHTML;
 }
 
@@ -157,11 +157,13 @@ function getMatrix(){
     let counter = 0;
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
-            if (board[i][j] == subMasterMatrix[i][j]) {
-                counter = 0;
-            }
-            else {
-                counter++;
+            if(board[i][j] == 0){
+                if (board[i][j] == subMasterMatrix[i][j]) {
+                    counter = 0;
+                }
+                else {
+                    counter++;
+                }
             }
         }
     }
@@ -209,7 +211,8 @@ function login() {
         let section = document.getElementById("chooseLevel");
         loginDiv.style.display = "none";
         section.style.opacity = "1";
-        section.style.display = "block";
+        section.style.display = "flex";
+        section.style.transform = "translateY(0)";
         titleH2.style.opacity = "1";
     }
 } 
